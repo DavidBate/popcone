@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>  
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+<log4j:configuration>
+
+	<appender name="PROJECT" class="org.apache.log4j.DailyRollingFileAppender">
+		<param name="File" value="/home/admin/popcone/logs/popcone.log" />
+		<param name="DatePattern" value="'.'yyyy-MM-dd" />
+		<param name="append" value="true" />
+		<param name="encoding" value="${loggingCharset}" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="[%-5p] [%d{yyyy-MM-dd HH:mm:ss}] [%X{requestURIWithQueryString}] %c - %m%n" />
+		</layout>
+	</appender>
+
+	<root>
+		<priority value="${loggingLevel}" />
+		<appender-ref ref="PROJECT" />
+	</root>
+</log4j:configuration>
